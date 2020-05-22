@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="455.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <BorderPane layoutX="220.0" layoutY="100.0" prefHeight="400.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <center>
+                  <LineChart fx:id="chart" prefWidth="128.0" BorderPane.alignment="CENTER">
+                    <xAxis>
+                      <NumberAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+               </center>
+               <right>
+                  <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="395.0" prefWidth="252.0" BorderPane.alignment="CENTER">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <Label layoutX="100.0" text="Functions" />
+                              <TableView fx:id="functionTable" layoutX="-35.0" layoutY="20.0" prefHeight="146.0" prefWidth="168.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+                                <columns>
+                                  <TableColumn fx:id="functionName" prefWidth="63.0" text="Name" />
+                                  <TableColumn fx:id="functionArg" prefWidth="73.0" text="Arguments" />
+                                    <TableColumn fx:id="functionExpr" prefWidth="113.0" text="Expression" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <Label layoutX="98.0" text="Constants" />
+                              <TableView fx:id="variableTable" layoutY="19.0" prefHeight="147.0" prefWidth="217.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="19.0">
+                                 <columns>
+                                    <TableColumn fx:id="variableName" prefWidth="125.0" text="Name" />
+                                    <TableColumn fx:id="variableValue" prefWidth="124.0" text="Value" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </right>
+               <top>
+                  <AnchorPane prefHeight="60.0" prefWidth="640.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <TextField fx:id="input" layoutX="121.0" layoutY="18.0" onAction="#handleValidate" prefHeight="25.0" prefWidth="272.0" />
+                        <Label layoutX="53.0" layoutY="22.0" text="Input" />
+                        <TextField fx:id="start" layoutX="505.0" layoutY="18.0" prefHeight="25.0" prefWidth="32.0" />
+                        <TextField fx:id="end" layoutX="588.0" layoutY="18.0" prefHeight="25.0" prefWidth="32.0" />
+                        <TextField fx:id="step" layoutX="673.0" layoutY="18.0" prefHeight="25.0" prefWidth="32.0" />
+                        <Label layoutX="641.0" layoutY="22.0" prefHeight="17.0" prefWidth="28.0" text="Step" />
+                        <Label layoutX="551.0" layoutY="22.0" prefHeight="17.0" prefWidth="28.0" text="End" />
+                        <Label layoutX="467.0" layoutY="22.0" prefHeight="17.0" prefWidth="30.0" text="Start" />
+                     </children>
+                  </AnchorPane>
+               </top>
+               <bottom>
+                  <Label fx:id="error" prefHeight="26.0" prefWidth="407.0" text="Error" textAlignment="CENTER" textFill="#f20000" visible="false" BorderPane.alignment="CENTER" />
+               </bottom>
+            </BorderPane>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
